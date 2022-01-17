@@ -24,3 +24,6 @@ doc/api/
 .vscode
 android/gradle*
 example/ios/Podfile.lock
+
+# fvm
+.fvm/

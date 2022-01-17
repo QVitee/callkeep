@@ -1,0 +1,110 @@
+{
+  "project_info": {
+    "project_number": "691368348643",
+    "project_id": "camera-55cc6",
+    "storage_bucket": "camera-55cc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691368348643:android:129255153f19c66b5eeed6",
+        "android_client_info": {
+          "package_name": "vn.aina.cameraai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691368348643-33b8rtpfrhnv5bk0uqhs5fb3b2c9bn9j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "93f46e5c317007da15531150eaf7026fefecc844"
+          }
+        },
+        {
+          "client_id": "691368348643-81hcc60at1855npjpotntu7agcdtuudn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "85b584fafa0ed5583f8c7b376522316f36760f9e"
+          }
+        },
+        {
+          "client_id": "691368348643-9bgtcb9thar7ch0b949ukqr3q6dfrj70.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "02429860ffee6af942add7264b0d8a654f8ade53"
+          }
+        },
+        {
+          "client_id": "691368348643-9pemiqub0844bvltdqfvfst32i1ol2js.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "9449f8809c3a8398be4ea131cbca454fac99d584"
+          }
+        },
+        {
+          "client_id": "691368348643-hotla5h3vvk20rhcqpb08hq1v5edo44l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "840caa297a421a9747c967c17b0a0ef8239a817c"
+          }
+        },
+        {
+          "client_id": "691368348643-m5ha33r3t5khstc4jfv0mf0u78maatoc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "4eb0149954ca559b5aa2a28d7e0db4f232aa3fc3"
+          }
+        },
+        {
+          "client_id": "691368348643-rvqlnh7pf97l51ncrrei86kr9cbvv5cp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "636b586847156ab762df77b7cd558b026d1d8c65"
+          }
+        },
+        {
+          "client_id": "691368348643-srnpbcr24rurec5j4m716b7kqni31jbo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.aina.cameraai",
+            "certificate_hash": "f40b3a498328e355b0382eabdad2f0a0ded65503"
+          }
+        },
+        {
+          "client_id": "691368348643-9ftrlh665q7al3lldmem1gogqsv5s0jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAewVgPNBC7hvbxJT6Rpgk3Z_dxDOJUJrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691368348643-9ftrlh665q7al3lldmem1gogqsv5s0jp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "691368348643-lk9as7e2fh83mpcsq275aeo06nj35adq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.aina.cameraai"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

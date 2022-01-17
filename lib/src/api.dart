@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart'
     show
         AlertDialog,
         BuildContext,
-        FlatButton,
         Navigator,
         Text,
         TextButton,
@@ -30,9 +30,9 @@ class FlutterCallkeep extends EventManager {
   static final FlutterCallkeep _instance = FlutterCallkeep._internal();
   static const MethodChannel _channel = MethodChannel('FlutterCallKeep.Method');
   static const MethodChannel _event = MethodChannel('FlutterCallKeep.Event');
-  BuildContext? _context;
+  BuildContext _context;
 
-  Future<void> setup(BuildContext? context, Map<String, dynamic> options,
+  Future<void> setup(BuildContext context, Map<String, dynamic> options,
       {bool backgroundMode = false}) async {
     _context = context;
     if (!isIOS) {
@@ -69,7 +69,7 @@ class FlutterCallkeep extends EventManager {
     return true;
   }
 
-  Future<bool?> _checkDefaultPhoneAccount() async {
+  Future<bool> _checkDefaultPhoneAccount() async {
     return await _channel
         .invokeMethod<bool>('checkDefaultPhoneAccount', <String, dynamic>{});
   }
@@ -84,26 +84,34 @@ class FlutterCallkeep extends EventManager {
     return false;
   }
 
-  Future<void> displayIncomingCall(String uuid, String handle,
-      {String localizedCallerName = '',
-      String handleType = 'number',
-      bool hasVideo = false}) async {
+  Future<void> displayIncomingCall(
+    String uuid,
+    String handle, {
+    String localizedCallerName = '',
+    String handleType = 'number',
+    bool hasVideo = false,
+  }) async {
     if (!isIOS) {
       await _channel.invokeMethod<void>(
-          'displayIncomingCall', <String, dynamic>{
-        'uuid': uuid,
-        'handle': handle,
-        'localizedCallerName': localizedCallerName
-      });
+        'displayIncomingCall',
+        <String, dynamic>{
+          'uuid': uuid,
+          'handle': handle,
+          'localizedCallerName': localizedCallerName
+        },
+      );
       return;
     }
-    await _channel.invokeMethod<void>('displayIncomingCall', <String, dynamic>{
-      'uuid': uuid,
-      'handle': handle,
-      'handleType': handleType,
-      'hasVideo': hasVideo,
-      'localizedCallerName': localizedCallerName
-    });
+    await _channel.invokeMethod<void>(
+      'displayIncomingCall',
+      <String, dynamic>{
+        'uuid': uuid,
+        'handle': handle,
+        'handleType': handleType,
+        'hasVideo': hasVideo,
+        'localizedCallerName': localizedCallerName
+      },
+    );
   }
 
   Future<void> answerIncomingCall(String uuid) async {
@@ -240,7 +248,7 @@ class FlutterCallkeep extends EventManager {
   }
 
   Future<void> updateDisplay(String uuid,
-          {required String displayName, required String handle}) async =>
+          {@required String displayName, @required String handle}) async =>
       await _channel.invokeMethod<void>('updateDisplay', <String, dynamic>{
         'uuid': uuid,
         'displayName': displayName,
@@ -328,7 +336,7 @@ class FlutterCallkeep extends EventManager {
   }
 
   Future<bool> _checkPhoneAccountPermission(
-      List<String>? optionalPermissions) async {
+      List<String> optionalPermissions) async {
     if (!Platform.isAndroid) {
       return true;
     }
@@ -343,13 +351,13 @@ class FlutterCallkeep extends EventManager {
   }
 
   Future<bool> _alert(
-      Map<String, dynamic> options, bool? showAccountAlert) async {
+      Map<String, dynamic> options, bool showAccountAlert) async {
     if (_context == null ||
         (showAccountAlert != null && showAccountAlert == false)) {
       return false;
     }
     var resp = await _showAlertDialog(
-        _context!,
+        _context,
         options['alertTitle'] as String,
         options['alertDescription'] as String,
         options['cancelButton'] as String,
@@ -360,8 +368,8 @@ class FlutterCallkeep extends EventManager {
     return false;
   }
 
-  Future<bool?> _showAlertDialog(BuildContext context, String? alertTitle,
-      String? alertDescription, String? cancelButton, String? okButton) async {
+  Future<bool> _showAlertDialog(BuildContext context, String alertTitle,
+      String alertDescription, String cancelButton, String okButton) async {
     return await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
